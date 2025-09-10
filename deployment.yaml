@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: hello-kubernetes
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: hello-kubernetes
@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: hello-kubernetes
-          image: your-dockerhub-username/hello-kubernetes:latest
+          image: kamalfarah/hello-kubernetes:latest
           ports:
             - containerPort: 3000

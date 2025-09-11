@@ -29,9 +29,10 @@ jobs:
           tags: kamalfarah/hello-kubernetes:latest
 
       - name: Set up Kubectl
-        uses: azure/k8s-set-context@v4
-        with:
-          kubeconfig: ${{ secrets.KUBE_CONFIG_DATA }}
+        
+        run: |
+          mkdir -p $HOME/.kube
+          echo "${{ secrets.KUBECONFIG_DATA }}" | base64 -d > $HOME/.kube/config
 
       - name: Deploy
         run: |

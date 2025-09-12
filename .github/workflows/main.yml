@@ -25,8 +25,9 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v4
         with:
+          context: .
           push: true
-          tags: kamalfarah/hello-kubernetes:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/hello-kubernetes:latest
 
       - name: Set up Kubectl
         
